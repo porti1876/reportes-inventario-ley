@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="reporte-inventario-ley.list">
+      <field name="name">reporte-inventario-ley list</field>
+      <field name="model">reporte-inventario-ley.reporte-inventario-ley</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="reporte-inventario-ley.action_window">
+      <field name="name">reporte-inventario-ley window</field>
+      <field name="res_model">reporte-inventario-ley.reporte-inventario-ley</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="reporte-inventario-ley.action_server">
+      <field name="name">reporte-inventario-ley server</field>
+      <field name="model_id" ref="model_reporte-inventario-ley_reporte-inventario-ley"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="reporte-inventario-ley" id="reporte-inventario-ley.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="reporte-inventario-ley.menu_1" parent="reporte-inventario-ley.menu_root"/>
+    <menuitem name="Menu 2" id="reporte-inventario-ley.menu_2" parent="reporte-inventario-ley.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="reporte-inventario-ley.menu_1_list" parent="reporte-inventario-ley.menu_1"
+              action="reporte-inventario-ley.action_window"/>
+    <menuitem name="Server to list" id="reporte-inventario-ley" parent="reporte-inventario-ley.menu_2"
+              action="reporte-inventario-ley.action_server"/>
+-->
+  </data>
+</odoo>

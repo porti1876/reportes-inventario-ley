@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+
+        <record id="view_informe_report_model_form" model="ir.ui.view">
+            <field name="name">informe.report.model.form</field>
+            <field name="model">informe.report.wiz</field>
+            <field name="arch" type="xml">
+               <form>
+                <group>
+                    <group>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="open_table" string="Confirmar" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+            </field>
+        </record>
+        <record id="action_informe_inventario_sv" model="ir.actions.act_window">
+            <field name="name">Informe de inventario F983 v4 wizard</field>
+            <field name="res_model">informe.report.wiz</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_informe_report_model_form"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="menu_informe_inventario_sv" name="Informe de inventario F983 v4 wizard"
+                  parent="stock.menu_warehouse_report"
+                  action="action_informe_inventario_sv"
+                  sequence="500"/>
+</odoo>

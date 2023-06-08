@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="sequence_item_account_move_line" model="ir.sequence">
+            <field name="name">account.move.line.item</field>
+            <field name="code">account.move.line.item.sequence</field>
+            <field name="padding">3</field> <!-- Ajusta el relleno según tus necesidades -->
+            <field name="prefix">%(month)s/</field>
+            <field name="implementation">no_gap</field> <!-- Reinicia automáticamente al mes siguiente -->
+        </record>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="stock_reporte_inventario_view" model="ir.ui.view">
+        <field name="name">stock.move.line.product.tree</field>
+        <field name="model">stock.move.line</field>
+        <field name="arch" type="xml">
+            <tree string="Product" create="false" delete="false" default_order="date desc" type="object">
+                <field name="location_usage" invisible="1"/>
+                <field name="location_dest_usage" invisible="1"/>
+                <field name="currency_id" invisible="1"/>
+                <field name="item_auto"/>
+                <field name="reference" string="Correlativo de operación"/>
+                <field name="date" string="Fecha"/>
+                <field name="correlativo" string="N° Documento"/>
+                <field name="picking_partner_id" string="Nombre de proveedor"/>
+                <field name="procedencia" string="Procedencia de proveedor"/>
+                <field name="product_id" string="Mercadería"/>
+                <field name="qty_done_out" string="Cantidad entrada"
+                       decoration-success="(location_usage not in ('internal','transit')) and (location_dest_usage in ('internal','transit'))"/>
+
+                <field name="qty_done_in" string="Cantidad salida"
+                       decoration-danger="(location_usage in ('internal','transit')) and (location_dest_usage not in ('internal','transit'))"/>
+                <field name="saldo_unidades" string="Saldo de unidades"/>
+                <field name="precio_costo_entra" string="Precio de costo por unidad que entra" widget="monetary"
+                       options="{'currency_field': 'currency_id'}"/>
+                <field name="precio_costo_sale" string="Precio de costo por unidad que sale" widget="monetary"
+                       options="{'currency_field': 'currency_id'}"/>
+                <field name="saldo_unidad_precio_costo" string="Saldo de unidades a precio de costo" widget="monetary"
+                       options="{'currency_field': 'currency_id'}"/>
+                <field name="location_dest_id" string="Ajustes a intentario"/>
+                <field name="mermas" string="Mermas"/>
+
+            </tree>
+        </field>
+    </record>
+    <record id="reporte_inventario_art_action" model="ir.actions.act_window">
+        <field name="name">Reporte de inventario Art. 142 A</field>
+        <field name="res_model">stock.move.line</field>
+        <field name="view_mode">tree</field>
+        <!--        <field name="context">{'search_default_state': 'done', 'group_by': 'date:month'}</field>-->
+        <field name="domain">[('state', '=', 'done')]</field>
+        <field name="view_id" ref="stock_reporte_inventario_view"/>
+    </record>
+
+
+    <menuitem id="reporte_inventario_art_menu"
+              name="Reporte de inventario Art. 142 A"
+              parent="stock.menu_warehouse_report"
+              action="reporte_inventario_art_action"
+              sequence="300"/>
+
+</odoo>

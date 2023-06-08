@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="stock_reporte_inventario_983_view" model="ir.ui.view">
+        <field name="name">inventory.reportf.informe</field>
+        <field name="model">inventory.reportf</field>
+        <field name="arch" type="xml">
+            <tree string="Reporte F983 v4" create="false" delete="false" default_order="date desc" type="object">
+                <!--                <field name="currency_id" invisible="1"/>-->
+                <field name="product_id" string="Nombre de producto"/>
+                <field name="referencia_interna" string="Referencia interna"/>
+                <field name="product_uom_id" string="Unidad de medida"/>
+                <field name="inventory_total" string="Inventario Total"/>
+                <field name="cost" string="Costo por unidad" widget="monetary"
+                       options="{'currency_field': 'currency_id'}"/>
+                <field name="costo_total" string="Costo por unidad" widget="monetary"
+                       options="{'currency_field': 'currency_id'}"/>
+                <field name="category_id" string="Categoria de producto"/>
+                <field name="journal_cat" string="Cuenta en la categoria"/>
+                <field name="date" string="Ejercicio fiscal" readonly="1" options="{'datepicker': {'format': 'yyyy'}}"/>
+            </tree>
+        </field>
+    </record>
+    <!--    <record id="reporte_inventario_f983_action" model="ir.actions.act_window">-->
+    <!--        <field name="name">Reporte de inventario F983 v4</field>-->
+    <!--        <field name="res_model">inventory.reportf</field>-->
+    <!--        <field name="view_mode">tree</field>-->
+    <!--        <field name="view_id" ref="stock_reporte_inventario_983_view"/>-->
+    <!--    </record>-->
+
+
+    <!--    <menuitem id="reporte_inventario_art_983_menu"-->
+    <!--              name="Reporte de inventario F983 v4"-->
+    <!--              parent="stock.menu_warehouse_report"-->
+    <!--              action="reporte_inventario_f983_action"-->
+    <!--              sequence="400"/>-->
+
+</odoo>
